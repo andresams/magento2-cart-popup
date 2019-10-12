@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Module Declaration
+ *
+ * @category   Prestafy
+ * @package    Prestafy_PopupAdmin
+ * @author     Andresa Martins <contact@andresa.dev>
+ * @copyright  Copyright (c) 2019 Prestafy eCommerce Solutions (https://www.prestafy.com.br)
+ * @license    http://opensource.org/licenses/BSD-2-Clause Simplified BSD License
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Prestafy_PopupAdmin" setup_version="1.0.0"/>
+</config>
