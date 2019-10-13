@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Access Control List
+ *
+ * @category   Prestafy
+ * @package    Prestafy_PopupAdmin
+ * @author     Andresa Martins <contact@andresa.dev>
+ * @copyright  Copyright (c) 2019 Prestafy eCommerce Solutions (https://www.prestafy.com.br)
+ * @license    http://opensource.org/licenses/BSD-2-Clause Simplified BSD License
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config" title="Configuration" translate="title" sortOrder="20">
+                            <resource id="Prestafy_PopupAdmin::cartpopup" title="Add to cart popup" translate="title"
+                                      sortOrder="150"/>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
