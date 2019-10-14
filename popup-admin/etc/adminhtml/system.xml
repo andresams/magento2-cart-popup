@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * System Configuration
+ *
+ * @category   Prestafy
+ * @package    Prestafy_PopupAdmin
+ * @author     Andresa Martins <contact@andresa.dev>
+ * @copyright  Copyright (c) 2019 Prestafy eCommerce Solutions (https://www.prestafy.com.br)
+ * @license    http://opensource.org/licenses/BSD-2-Clause Simplified BSD License
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="cartpopup" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <label>Add to Cart PopUp</label>
+            <tab>catalog</tab>
+            <resource>Prestafy_PopupAdmin::cartpopup</resource>
+            <group id="settings" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Add To Cart PopUp</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="1" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="product_carousel" translate="label" type="select" sortOrder="3" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Product Carousel</label>
+                    <source_model>Prestafy\PopupAdmin\Model\Config\Source\Carousel</source_model>
+                </field>
+                <field id="product_limit" translate="label" type="select" sortOrder="3" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Product Limit</label>
+                    <source_model>Prestafy\PopupAdmin\Model\Config\Source\ProductLimit</source_model>
+                </field>
+                <field id="carousel_autoplay" translate="label" type="select" sortOrder="3" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Autoplay Carousel?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+            </group>
+        </section>
+    </system>
+</config>
