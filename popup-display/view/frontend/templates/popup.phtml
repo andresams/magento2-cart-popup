@@ -1,0 +1,32 @@
+<?php
+/**
+ * A block that displays some cute cart popup
+ *
+ * @category   Prestafy
+ * @package    Prestafy_PopupDisplay
+ * @author     Andresa Martins <contact@andresa.dev>
+ * @copyright  Copyright (c) 2019 Prestafy eCommerce Solutions (https://www.prestafy.com.br)
+ * @license    http://opensource.org/licenses/BSD-2-Clause Simplified BSD License
+ */
+?>
+<div data-placeholder="cartpopup" style="display: none;">
+    <div data-bind="scope: 'cartpopup'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                            "cartpopup": {
+                                "component": "Prestafy_PopupDisplay/js/cartpopup",
+                                "shoppingCartUrl": "<?php echo $block->getShoppingCartUrl(); ?>",
+                                "cartMessage": "<?php echo $block->getCartMessage(); ?>",
+                                "successIcon" : "<?php echo $block->getSuccessIcon(); ?>"
+                            }
+                    }
+                }
+            }
+    }
+</script>
