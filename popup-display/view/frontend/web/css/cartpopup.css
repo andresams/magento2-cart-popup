@@ -1,0 +1,138 @@
+<!--
+/**
+ * Cart popup component styles
+ *
+ * @category   Prestafy
+ * @package    Prestafy_PopupDisplay
+ * @author     Andresa Martins <contact@andresa.dev>
+ * @copyright  Copyright (c) 2019 Prestafy eCommerce Solutions (https://www.prestafy.com.br)
+ * @license    http://opensource.org/licenses/BSD-2-Clause Simplified BSD License
+ */
+-->
+.no-header-footer .modal-footer {
+    display: none;
+}
+
+.no-header-footer .modal-inner-wrap {
+    box-shadow: none;
+    border-radius: 8px;
+    max-width: 800px;
+}
+
+.no-header-footer .modal-product-list li {
+    border: 1px solid #f2f2f2;
+    float: left;
+    position: relative;
+    list-style: none;
+    padding: 0;
+    width: 155px;
+    height: 155px;
+}
+
+.no-header-footer .modal-product-list li:hover {
+    border: 1px solid #ff4747;
+}
+
+.no-header-footer .modal-product-list ul {
+    padding-left: 30px;
+}
+
+.no-header-footer .modal-product-list li + li {
+    margin-left: 20px;
+}
+
+.no-header-footer .view-shopping-cart {
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #ff4747;
+    border: 1px solid #ff4747;
+    border-radius: 4px;
+    padding-left: 30px;
+    padding-right: 30px;
+    box-shadow: none;
+    width: 180px;
+}
+
+.no-header-footer .continue-shopping {
+    font-size: 1.2rem;
+    background-color: #fff;
+    color: #ff4747;
+    border: 1px solid #ff4747;
+    border-radius: 4px;
+    padding-left: 30px;
+    padding-right: 30px;
+    box-shadow: none;
+    width: 180px;
+}
+
+.no-header-footer a.close-modal:before {
+    color: #757575;
+    content: '\e616';
+    font-family: 'luma-icons';
+    font-size: 20px;
+}
+
+.no-header-footer a, .no-header-footer a:hover {
+    text-decoration: none;
+}
+
+.no-header-footer .modal-popup-top {
+    position: relative;
+    display: block;
+    padding-left: 15px;
+    font-size: 14px;
+}
+
+.no-header-footer .modal-popup-body {
+    height: 290px;
+    padding-top: 20px;
+}
+
+.no-header-footer .modal-popup-header {
+    border-bottom: 1px solid #f2f2f2;
+    padding-bottom: 30px
+}
+
+.no-header-footer .modal-popup-icon {
+    float: left;
+    position: relative;
+    display: block;
+    padding-right: 15px;
+}
+
+@media only screen and (max-width: 767px) {
+    .no-header-footer .modal-product-list li {
+        width: 50%;
+    }
+
+    .no-header-footer .continue-shopping {
+        margin-top: 5px;
+    }
+
+    .no-header-footer .modal-popup-top p {
+        font-size: 13px;
+    }
+
+    .no-header-footer .modal-product-list li + li {
+        margin-left: 10px;
+    }
+
+    .no-header-footer .modal-product-list li {
+        width: 45%;
+        margin-left: 10px;
+    }
+
+    .no-header-footer .modal-product-list {
+        margin: 0;
+        padding: 0;
+    }
+
+    .no-header-footer .modal-popup-header {
+        padding-bottom: 0;
+    }
+
+    .no-header-footer .cart-buttons {
+        text-align: center;
+    }
+
+}

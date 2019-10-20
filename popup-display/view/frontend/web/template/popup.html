@@ -1,0 +1,39 @@
+<!--
+/**
+ * CartPopup Component Template
+ *
+ * @category   Prestafy
+ * @package    Prestafy_PopupDisplay
+ * @author     Andresa Martins <contact@andresa.dev>
+ * @copyright  Copyright (c) 2019 Prestafy eCommerce Solutions (https://www.prestafy.com.br)
+ * @license    http://opensource.org/licenses/BSD-2-Clause Simplified BSD License
+ */
+ -->
+<div class="modal-popup-header">
+    <div class="modal-popup-icon">
+        <img data-bind="attr: { src: successIcon }" width="40" height="40">
+    </div>
+    <div class="modal-popup-top">
+        <p data-bind="html: cartMessage"></p>
+        <p class="cart-buttons">
+            <button type="button" class="view-shopping-cart" data-bind="event: {click: viewShoppingCart}">
+                <!-- ko i18n: 'View Shopping Cart' --><!-- /ko --></button>
+            <button type="button" class="continue-shopping" data-bind="event: { click: closeModal }">
+                <!-- ko i18n: 'Continue Shopping' --><!-- /ko --></button>
+        </p>
+    </div>
+</div>
+<div class="modal-popup-body">
+    <p><!-- ko i18n: 'Other Items You Might Be Interested In:' --><!-- /ko --></p>
+    <div data-bind="foreach: products">
+        <ul data-bind="foreach:Object.keys($data)" class="modal-product-list">
+            <li>
+                <a data-bind="attr: { href: $parent[$data].product_url }">
+                    <img data-bind="attr: { src: $parent[$data].product_image }" width="155" height="155"/>
+                </a>
+                <span><strong data-bind="text: $parent[$data].product_price"></strong></span>
+            </li>
+        </ul>
+    </div>
+</div>
+
