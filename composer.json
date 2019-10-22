@@ -1,6 +1,6 @@
 {
   "name": "prestafy/magento2-cart-popup",
-  "description": "Responsive Add to Cart Popup for Magento 2.3",
+  "description": "Responsive Added to Cart Popup for Magento 2.3",
   "replace": {
     "prestafy/popup-admin": "self.version",
     "prestafy/popup-display": "self.version"
