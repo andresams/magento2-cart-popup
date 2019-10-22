@@ -1,0 +1,47 @@
+{
+  "name": "presatfy/popup-admin",
+  "description": "Responsive Add to Cart Popup for Magento 2.3 — Admin module",
+  "version": "1.0.0",
+  "type": "magento2-module",
+  "license": "Simplified BSD License",
+  "authors": [
+    {
+      "name": "Andresa Martins",
+      "email": "contact@andresa.dev",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "alpha",
+  "repositories": {
+    "magento": {
+      "type": "composer",
+      "url": "https://repo.magento.com/"
+    }
+  },
+  "require": {
+    "magento/framework": "100.1.*|101.0.*|102.0.*",
+    "php": "^5.6 || ^7.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~6.5",
+    "magento/magento-coding-standard": "~2.0"
+  },
+  "scripts": {
+    "test-unit": "vendor/phpunit/phpunit/phpunit Test/Unit",
+    "test-phpcs": "vendor/bin/phpcs --standard=Magento2 ./Controller/ ./Plugin/ ./Service/ ./Test/ ./etc/ i18n/",
+    "post-install-cmd": [
+      "[ $COMPOSER_DEV_MODE -eq 1 ] && vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/"
+    ],
+    "post-update-cmd": [
+      "[ $COMPOSER_DEV_MODE -eq 1 ] && vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/"
+    ]
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Prestafy\\PopupAdmin\\": ""
+    }
+  }
+}
