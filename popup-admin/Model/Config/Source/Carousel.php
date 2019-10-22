@@ -21,11 +21,9 @@ class Carousel implements \Magento\Framework\Option\ArrayInterface
     public function toOptionArray()
     {
         return [
-            ['value' => 0, 'label' => __('Related Products')],
-            ['value' => 1, 'label' => __('Best Sellers')],
-            ['value' => 2, 'label' => __('Newest Products')],
-            ['value' => 3, 'label' => __('Random Products')],
-            ['value' => 4, 'label' => __('Products on the same category')]
+            ['value' => '_bestSellerProducts', 'label' => __('Best Sellers')],
+            ['value' => '_latestProducts', 'label' => __('Latest Products')],
+            ['value' => '_randomProducts', 'label' => __('Random Products')]
         ];
     }
 
@@ -37,11 +35,9 @@ class Carousel implements \Magento\Framework\Option\ArrayInterface
     public function toArray()
     {
         return [
-            0 => __('Related Products'),
-            1 => __('Best Sellers'),
-            2 => __('Newest Products'),
-            3 => __('Random Products'),
-            4 => __('Products on the same category')
+            '_bestSellerProducts' => __('Best Sellers'),
+            '_latestProducts' => __('Latest Products'),
+            '_randomProducts' => __('Random Products')
         ];
     }
 }
