@@ -14,12 +14,13 @@ namespace Prestafy\PopupDisplay\CustomerData;
 use Magento\Catalog\Helper\Image;
 use Magento\Catalog\Model\Product\Attribute\Source\Status;
 use Magento\Catalog\Model\Product\Visibility;
+use Magento\Catalog\Model\ResourceModel\Product\Collection;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
 use Magento\Checkout\Helper\Cart as CartHelper;
 use Magento\Customer\CustomerData\SectionSourceInterface;
 use Magento\Framework\Pricing\Helper\Data as PricingHelper;
+use Magento\Sales\Model\ResourceModel\Report\Bestsellers\CollectionFactory as BestSellersCollectionFactory;
 use Prestafy\PopupDisplay\Helper\Data as Helper;
-use Magento\Catalog\Model\ResourceModel\Product\Collection;
 
 /**
  * PopupCart source
@@ -34,7 +35,9 @@ class PopupCartData implements SectionSourceInterface
      */
     protected $collectionFactory;
 
-    /** @var Magento\Catalog\Helper\Image */
+    /**
+     * @var Magento\Catalog\Helper\Image
+     */
     protected $catalogImage;
 
     /**
@@ -60,8 +63,15 @@ class PopupCartData implements SectionSourceInterface
      */
     protected $cartHelper;
 
-    /** @var Helper */
+    /**
+     * @var Helper
+     */
     protected $helper;
+
+    /**
+     * @var BestSellersCollectionFactory
+     */
+    protected $bestSellersCollectionFactory;
 
     /**
      * @param CollectionFactory $collectionFactory
@@ -80,8 +90,10 @@ class PopupCartData implements SectionSourceInterface
         Status $productStatus,
         Visibility $productVisibility,
         CartHelper $cartHelper,
-        Helper $helper
-    ) {
+        Helper $helper,
+        BestSellersCollectionFactory $bestSellersCollectionFactory
+    )
+    {
         $this->collectionFactory = $collectionFactory;
         $this->catalogImage = $catalogImage;
         $this->pricingHelper = $pricingHelper;
@@ -89,6 +101,7 @@ class PopupCartData implements SectionSourceInterface
         $this->productVisibility = $productVisibility;
         $this->cartHelper = $cartHelper;
         $this->helper = $helper;
+        $this->bestSellersCollectionFactory = $bestSellersCollectionFactory;
 
         $this->_initCollection();
     }
@@ -105,7 +118,7 @@ class PopupCartData implements SectionSourceInterface
         $this->$collectionType();
         $output = [
             'cartTotalCount' => $this->cartHelper->getSummaryCount(),
-            'products'       => $this->_getCollection()
+            'products' => $this->_getCollection()
         ];
 
         return $output;
@@ -187,5 +200,25 @@ class PopupCartData implements SectionSourceInterface
         }
 
         return $this->collection->toArray();
+    }
+
+    /**
+     * Create collection with best selling products of this month
+     */
+    private function _bestSellerProducts()
+    {
+        $productIds = [];
+        $bestSellers = $this->bestSellersCollectionFactory->create()
+            ->setPeriod('month');
+
+        foreach ($bestSellers as $product) {
+            $productIds[] = $product->getProductId();
+        }
+
+        if (empty($productIds)) {
+            $this->_randomProducts();
+        } else {
+            $this->collection->addIdFilter($productIds);
+        }
     }
 }
