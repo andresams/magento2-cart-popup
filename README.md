@@ -1,5 +1,5 @@
 # Added To Cart Popup — Magento 2.3 Module
-This module displays a cool popup after a product is added to cart. When the popup is displayed, a few suggested products are also presented to the user — you can choose between Latest Products, Related Products, Best Sellers and Random Products.
+This module displays a responsive popup after a product is added to cart. When the popup is displayed, a few suggested products are also presented to the user — you can choose between Latest Products, Related Products, Best Sellers and Random Products.
 
 It is fully built with KnockoutJS and also implements a new CustomerData section.
 
